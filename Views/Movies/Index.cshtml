@@ -1,0 +1,27 @@
+@model Vidly.ViewModels.RandomMovieViewModel
+
+@{
+    ViewData["Title"] = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2>Movies</h2>
+@if (Model.Movies.Count == 0)
+{
+    <text>No one has rented this movie before.</text>
+}
+else
+{
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Movies</strong></li>
+        @foreach (var movie in Model.Movies)
+        {
+            <li class="list-group-item">
+                @Html.ActionLink(@movie.Name, "Details", new { id = movie.Id });
+
+            </li>
+        }
+    </ul>
+}

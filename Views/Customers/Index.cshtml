@@ -1,0 +1,29 @@
+@model IEnumerable<Customer>
+@{
+    ViewData["Title"] = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    var className = Model.Count() > 5 ? "popular" : null;
+}
+
+<h2 class="@className">Customers</h2>
+@if (Model.Count() == 0)
+{
+    <text>No one has rented this movie before.</text>
+}
+else
+{
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Customers</strong></li>
+        @foreach (var customer in Model)
+        {
+            <li class="list-group-item">
+                @Html.ActionLink(@customer.Name, "Details", new { id = customer.Id });
+
+            </li>
+        }
+    </ul>
+}
