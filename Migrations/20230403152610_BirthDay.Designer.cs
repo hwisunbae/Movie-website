@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vidly.Data;
 
@@ -11,9 +12,11 @@ using Vidly.Data;
 namespace Vidly.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230403152610_BirthDay")]
+    partial class BirthDay
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,73 +136,13 @@ namespace Vidly.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DateAdded")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Genre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NumInStock")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
 
                     b.ToTable("Movies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateAdded = new DateTime(2016, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Comedy",
-                            Name = "Hangover",
-                            NumInStock = 5,
-                            ReleaseDate = new DateTime(2016, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateAdded = new DateTime(2012, 6, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action",
-                            Name = "Die Hard",
-                            NumInStock = 10,
-                            ReleaseDate = new DateTime(2011, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateAdded = new DateTime(2022, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action",
-                            Name = "The Terminator",
-                            NumInStock = 6,
-                            ReleaseDate = new DateTime(2022, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DateAdded = new DateTime(2016, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Family",
-                            Name = "Toy Story",
-                            NumInStock = 2,
-                            ReleaseDate = new DateTime(2017, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            DateAdded = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Romance",
-                            Name = "Titanic",
-                            NumInStock = 9,
-                            ReleaseDate = new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("Vidly.Models.Customer", b =>

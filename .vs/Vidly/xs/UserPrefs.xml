@@ -1,51 +1,56 @@
 ﻿<Properties StartupConfiguration="{D0BBDD5F-9911-4A1A-AE69-DA6B14F022C4}|https">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Vidly PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/CustomersController.cs">
     <Files>
-      <File FileName="Models/MembershipType.cs" />
-      <File FileName="Controllers/CustomersController.cs" />
-      <File FileName="appsettings.json" Line="10" Column="11" />
-      <File FileName="Program.cs" Line="3" Column="25" />
-      <File FileName="Properties/launchSettings.json" Line="30" Column="32" />
-      <File FileName="Models/Customer.cs" Line="7" Column="3" />
-      <File FileName="Models/ErrorViewModel.cs" />
-      <File FileName="Models/Movie.cs" Line="11" Column="35" />
-      <File FileName="ViewModels/RandomMovieViewModel.cs" />
-      <File FileName="Views/Customers/Details.cshtml" />
-      <File FileName="Views/Customers/Index.cshtml" />
+      <File FileName="Models/MembershipType.cs" Line="6" Column="1" />
+      <File FileName="Controllers/CustomersController.cs" Line="45" Column="12" />
+      <File FileName="appsettings.json" Line="14" Column="1" />
+      <File FileName="Program.cs" Line="3" Column="6" />
+      <File FileName="Properties/launchSettings.json" />
+      <File FileName="Models/Customer.cs" Line="22" Column="29" />
+      <File FileName="Models/ErrorViewModel.cs" Line="1" Column="1" />
+      <File FileName="Models/Movie.cs" />
+      <File FileName="ViewModels/RandomMovieViewModel.cs" Line="1" Column="1" />
+      <File FileName="Views/Customers/Details.cshtml" Line="10" Column="1" />
+      <File FileName="Views/Customers/Index.cshtml" Line="25" Column="1" />
       <File FileName="../../../../../../../usr/local/share/dotnet/sdk/7.0.102/Microsoft.Common.CurrentVersion.targets" />
       <File FileName="Views/Movies/Index.cshtml" />
       <File FileName="Views/Home/Privacy.cshtml" />
       <File FileName="Views/Home/Index.cshtml" />
       <File FileName="Views/Movies/Index.cshtml.cs" />
       <File FileName="Views/Movies/Customers.cshtml" />
-      <File FileName="Controllers/HomeController.cs" />
-      <File FileName="Controllers/MoviesController.cs" />
+      <File FileName="Controllers/HomeController.cs" Line="15" Column="1" />
+      <File FileName="Controllers/MoviesController.cs" Line="21" Column="29" />
       <File FileName="Views/_ViewStart.cshtml" />
       <File FileName="Views/Shared/_NavBar.cshtml" />
       <File FileName="Views/Movies/Details.cshtml" />
       <File FileName="Views/Shared/_Layout.cshtml" />
-      <File FileName="Views/Customers/New.cshtml" />
+      <File FileName="Views/Customers/New.cshtml" Line="1" Column="1" />
       <File FileName="ViewModels/NewCustomerViewModel.cs" />
-      <File FileName="Data/ApplicationDBContext.cs" Line="10" Column="30" />
+      <File FileName="Context/ApplicationDBContext.cs" Line="75" Column="10" />
+      <File FileName="Migrations/ApplicationDBContextModelSnapshot.cs" Line="111" Column="1" />
+      <File FileName="Migrations/20230326201549_InitialModels.cs" Line="49" Column="93" />
+      <File FileName="Migrations/20230326201820_PopulateMembershipTypes.Designer.cs" Line="1" Column="1" />
+      <File FileName="Migrations/20230326202800_PopulateMembershipTypes.cs" Line="23" Column="1" />
+      <File FileName="Migrations/20230326203303_PopulateMembershipTypes_Redo.cs" Line="37" Column="33" />
+      <File FileName="Migrations/20230326202800_PopulateMembershipTypes.Designer.cs" Line="8" Column="6" />
+      <File FileName="Migrations/20230326224500_CustomerTemp.cs" Line="23" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Vidly" expanded="True">
             <Node name="Vidly" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True">
-                  <Node name="Microsoft.EntityFrameworkCore.SqlServer" expanded="True" />
-                </Node>
-              </Node>
+              <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="ViewModels" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Customers" expanded="True" />
+                <Node name="Customers" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
                 <Node name="Home" expanded="True" />
                 <Node name="Movies" expanded="True" />
                 <Node name="Shared" expanded="True" />
@@ -57,8 +62,10 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Vidly PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

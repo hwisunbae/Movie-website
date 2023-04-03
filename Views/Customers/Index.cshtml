@@ -16,14 +16,21 @@
 }
 else
 {
-    <ul class="list-group">
-        <li class="list-group-item"><strong>Customers</strong></li>
-        @foreach (var customer in Model)
-        {
-            <li class="list-group-item">
-                @Html.ActionLink(@customer.Name, "Details", new { id = customer.Id });
-
-            </li>
-        }
-    </ul>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Customer</th>
+                <th scope="col">Discount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr scope="row">
+                    <td>@Html.ActionLink(@customer.Name, "Details", new { id = customer.Id })</td>
+                    <td>@customer.MembershipType.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vidly.Data;
 
@@ -11,9 +12,11 @@ using Vidly.Data;
 namespace Vidly.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230403145209_CustomerTemp2")]
+    partial class CustomerTemp2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,7 +57,6 @@ namespace Vidly.Migrations
                         new
                         {
                             Id = 1,
-                            Birthdate = new DateTime(1980, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsSubscribedNewsletter = false,
                             MembershipTypeId = (byte)1,
                             Name = "Johnm Smith"
@@ -79,10 +81,6 @@ namespace Vidly.Migrations
                     b.Property<byte>("DurationInMonths")
                         .HasColumnType("tinyint");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<short>("SignUpFee")
                         .HasColumnType("smallint");
 
@@ -96,7 +94,6 @@ namespace Vidly.Migrations
                             Id = (byte)1,
                             DiscountRate = (byte)0,
                             DurationInMonths = (byte)0,
-                            Name = "Pay as You Go",
                             SignUpFee = (short)0
                         },
                         new
@@ -104,7 +101,6 @@ namespace Vidly.Migrations
                             Id = (byte)2,
                             DiscountRate = (byte)10,
                             DurationInMonths = (byte)1,
-                            Name = "Monthly",
                             SignUpFee = (short)30
                         },
                         new
@@ -112,7 +108,6 @@ namespace Vidly.Migrations
                             Id = (byte)3,
                             DiscountRate = (byte)15,
                             DurationInMonths = (byte)3,
-                            Name = "Quarterly",
                             SignUpFee = (short)90
                         },
                         new
@@ -120,7 +115,6 @@ namespace Vidly.Migrations
                             Id = (byte)4,
                             DiscountRate = (byte)20,
                             DurationInMonths = (byte)12,
-                            Name = "Yearly",
                             SignUpFee = (short)300
                         });
                 });
@@ -133,73 +127,13 @@ namespace Vidly.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DateAdded")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Genre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NumInStock")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
 
                     b.ToTable("Movies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateAdded = new DateTime(2016, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Comedy",
-                            Name = "Hangover",
-                            NumInStock = 5,
-                            ReleaseDate = new DateTime(2016, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateAdded = new DateTime(2012, 6, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action",
-                            Name = "Die Hard",
-                            NumInStock = 10,
-                            ReleaseDate = new DateTime(2011, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateAdded = new DateTime(2022, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action",
-                            Name = "The Terminator",
-                            NumInStock = 6,
-                            ReleaseDate = new DateTime(2022, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DateAdded = new DateTime(2016, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Family",
-                            Name = "Toy Story",
-                            NumInStock = 2,
-                            ReleaseDate = new DateTime(2017, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            DateAdded = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Romance",
-                            Name = "Titanic",
-                            NumInStock = 9,
-                            ReleaseDate = new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("Vidly.Models.Customer", b =>

@@ -1,27 +1,33 @@
-@model Vidly.ViewModels.RandomMovieViewModel
+@model IEnumerable<Movie>
 
 @{
     ViewData["Title"] = "Movies";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
 <h2>Movies</h2>
-@if (Model.Movies.Count == 0)
+@if (Model.Count() == 0)
 {
     <text>No one has rented this movie before.</text>
 }
 else
 {
-    <ul class="list-group">
-        <li class="list-group-item"><strong>Movies</strong></li>
-        @foreach (var movie in Model.Movies)
-        {
-            <li class="list-group-item">
-                @Html.ActionLink(@movie.Name, "Details", new { id = movie.Id });
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Movie</th>
+                <th scope="col">Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr scope="row">
+                    <td>@Html.ActionLink(@movie.Name, "Details", new { id = movie.Id })</td>
+                    <td>@movie.Genre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-            </li>
-        }
-    </ul>
 }
