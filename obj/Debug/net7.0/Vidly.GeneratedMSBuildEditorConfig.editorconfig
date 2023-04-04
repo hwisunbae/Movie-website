@@ -16,16 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/hwisunbae/Documents/Dev/C#/Vidly/Vidly
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/hwisunbae/Documents/Dev/C\#/Vidly/Vidly/Views/Customers/CustomerForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXJzL0N1c3RvbWVyRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/hwisunbae/Documents/Dev/C\#/Vidly/Vidly/Views/Customers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXJzL0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/hwisunbae/Documents/Dev/C\#/Vidly/Vidly/Views/Customers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXJzL0luZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/hwisunbae/Documents/Dev/C\#/Vidly/Vidly/Views/Customers/New.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXJzL05ldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/hwisunbae/Documents/Dev/C\#/Vidly/Vidly/Views/Home/Index.cshtml]

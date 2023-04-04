@@ -43,7 +43,7 @@ namespace Vidly.Controllers
         public IActionResult New()
         {
             IEnumerable<MembershipType> membershipTypes = _context.MembershipTypes.ToList();
-            var viewModel = new NewCustomerViewModel
+            var viewModel = new CustomerFormViewModel
             {
                 MembershipTypes = membershipTypes
             };
@@ -51,14 +51,38 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Customer customer)
+        public IActionResult Save(Customer customer)
         {
-            _context.Customers.Add(customer);
+            if (customer.Id == 0)
+                _context.Customers.Add(customer);
+            else
+            {
+                var customerInDb = _context.Customers.First(c => c.Id == customer.Id);
+
+                customerInDb.Name = customer.Name;
+                customerInDb.Birthdate = customer.Birthdate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedNewsletter = customer.IsSubscribedNewsletter;
+            }
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Customers");
         }
 
+        public IActionResult Edit(int id)
+        {
+            Customer customer = _context.Customers.FirstOrDefault(c => c.Id == id);
+
+            if (customer == null)
+                return NotFound();
+
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+            return View("CustomerForm", viewModel);
+        }
     }
 }
 
