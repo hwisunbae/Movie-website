@@ -40,6 +40,25 @@ namespace Vidly.Controllers
 
         }
 
+        public IActionResult New()
+        {
+            IEnumerable<MembershipType> membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Create(Customer customer)
+        {
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
+        }
+
     }
 }
 
