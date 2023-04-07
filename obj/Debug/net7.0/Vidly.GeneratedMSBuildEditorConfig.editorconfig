@@ -36,12 +36,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hwisunbae/Documents/Dev/C\#/Vidly/Vidly/Views/Movies/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL0RldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/hwisunbae/Documents/Dev/C\#/Vidly/Vidly/Views/Movies/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/hwisunbae/Documents/Dev/C\#/Vidly/Vidly/Views/Movies/MovieForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL01vdmllRm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/hwisunbae/Documents/Dev/C\#/Vidly/Vidly/Views/Shared/Error.cshtml]

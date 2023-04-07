@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.NetworkInformation;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using Vidly.Models;
 
 /*
@@ -18,9 +19,11 @@ namespace Vidly.Data
 		public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options): base(options)
 		{
 		}
+        
+        public DbSet<MembershipType> MembershipTypes { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Genre> Genres { get; set; }
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<MembershipType> MembershipTypes { get; set; } 
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -60,6 +63,8 @@ namespace Vidly.Data
                 }
             );
 
+
+
             modelBuilder.Entity<Customer>().HasData(
                 new Customer
                 {
@@ -78,12 +83,36 @@ namespace Vidly.Data
                 }
             );
 
+            modelBuilder.Entity<Genre>().HasData(
+                new Genre
+                {
+                    Id = 1,
+                    Name = "Comedy"
+                },
+                new Genre
+                {
+                    Id = 2,
+                    Name = "Action"
+                },
+                new Genre
+                {
+                    Id = 3,
+                    Name = "Family"
+                },
+                new Genre
+                {
+                    Id = 4,
+                    Name = "Romance"
+                }
+            );
+
+
             modelBuilder.Entity<Movie>().HasData(
                 new Movie
                 {
                     Id = 1,
                     Name = "Hangover",
-                    Genre = "Comedy",
+                    GenreId = 1,
                     ReleaseDate = new DateTime(2016, 11, 6),
                     DateAdded = new DateTime(2016, 5, 4),
                     NumInStock = 5
@@ -92,7 +121,7 @@ namespace Vidly.Data
                 {
                     Id = 2,
                     Name = "Die Hard",
-                    Genre = "Action",
+                    GenreId = 1,
                     ReleaseDate = new DateTime(2011, 5, 23),
                     DateAdded = new DateTime(2012, 6, 29),
                     NumInStock = 10
@@ -101,7 +130,7 @@ namespace Vidly.Data
                 {
                     Id = 3,
                     Name = "The Terminator",
-                    Genre = "Action",
+                    GenreId = 2,
                     ReleaseDate = new DateTime(2022, 10, 6),
                     DateAdded = new DateTime(2022, 12, 30),
                     NumInStock = 6
@@ -110,7 +139,7 @@ namespace Vidly.Data
                 {
                     Id = 4,
                     Name = "Toy Story",
-                    Genre = "Family",
+                    GenreId = 3,
                     ReleaseDate = new DateTime(2017, 4, 2),
                     DateAdded = new DateTime(2016, 1, 4),
                     NumInStock = 2
@@ -119,7 +148,7 @@ namespace Vidly.Data
                 {
                     Id = 5,
                     Name = "Titanic",
-                    Genre = "Romance",
+                    GenreId = 4,
                     ReleaseDate = new DateTime(2023, 1, 16),
                     DateAdded = new DateTime(2023, 8, 10),
                     NumInStock = 9

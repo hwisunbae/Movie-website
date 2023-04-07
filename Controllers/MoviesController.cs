@@ -24,25 +24,62 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-        public IActionResult Edit(int id)
-        {
-            return Content("id =" + id);
-        }
-
         // Movies 
         public IActionResult Index(int? pageIndex, string sortBy)
         {
-            IEnumerable<Movie> movies = _context.Movies.ToList();
-            return View(movies);
+            IEnumerable<Movie> Movies = _context.Movies.Include(m => m.Genre).ToList();
+            return View(Movies);
         }
 
-        public IActionResult Details(int id)
+
+        public IActionResult Edit(int id)
         {
-            Movie found = _context.Movies.FirstOrDefault(c => c.Id == id);
+            Movie found = _context.Movies.Include(m => m.Genre).FirstOrDefault(c => c.Id == id);
             if (found == null)
                 return NotFound();
             else
-                return View(found);
+            {
+                MovieFormViewModel viewModel = new MovieFormViewModel
+                {
+                    Movie = found,
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MovieForm", viewModel);
+            }
+
+        }
+
+        public IActionResult New()
+        {
+            MovieFormViewModel viewModel = new MovieFormViewModel
+            {
+                Genres = _context.Genres.ToList()
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                movie.DateAdded = DateTime.Now.Date;
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieInDb = _context.Movies.First(m => m.Id == movie.Id);
+
+                movieInDb.Name = movie.Name;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.DateAdded = movie.DateAdded;
+                movieInDb.NumInStock = movie.NumInStock;
+            }
+            
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Movies");
         }
 
         [Route("movies/released/{year}/{month:regex(\\d{{2}}):range(1,12)}")]

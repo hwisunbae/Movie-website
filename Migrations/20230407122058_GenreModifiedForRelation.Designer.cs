@@ -12,8 +12,8 @@ using Vidly.Data;
 namespace Vidly.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230403152107_MembershipTypeName")]
-    partial class MembershipTypeName
+    [Migration("20230407122058_GenreModifiedForRelation")]
+    partial class GenreModifiedForRelation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,6 +57,7 @@ namespace Vidly.Migrations
                         new
                         {
                             Id = 1,
+                            Birthdate = new DateTime(1980, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsSubscribedNewsletter = false,
                             MembershipTypeId = (byte)1,
                             Name = "Johnm Smith"
@@ -67,6 +68,43 @@ namespace Vidly.Migrations
                             IsSubscribedNewsletter = true,
                             MembershipTypeId = (byte)2,
                             Name = "Mary Williams"
+                        });
+                });
+
+            modelBuilder.Entity("Vidly.Models.Genre", b =>
+                {
+                    b.Property<byte>("Id")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genre");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = (byte)1,
+                            Name = "Comedy"
+                        },
+                        new
+                        {
+                            Id = (byte)2,
+                            Name = "Action"
+                        },
+                        new
+                        {
+                            Id = (byte)3,
+                            Name = "Family"
+                        },
+                        new
+                        {
+                            Id = (byte)4,
+                            Name = "Romance"
                         });
                 });
 
@@ -90,7 +128,7 @@ namespace Vidly.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MembershipType");
+                    b.ToTable("MembershipTypes");
 
                     b.HasData(
                         new
@@ -135,13 +173,74 @@ namespace Vidly.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("GenreId")
+                        .HasColumnType("tinyint");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("NumInStock")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReleaseDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("GenreId");
+
                     b.ToTable("Movies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateAdded = new DateTime(2016, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            GenreId = (byte)1,
+                            Name = "Hangover",
+                            NumInStock = 5,
+                            ReleaseDate = new DateTime(2016, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DateAdded = new DateTime(2012, 6, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            GenreId = (byte)1,
+                            Name = "Die Hard",
+                            NumInStock = 10,
+                            ReleaseDate = new DateTime(2011, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DateAdded = new DateTime(2022, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            GenreId = (byte)2,
+                            Name = "The Terminator",
+                            NumInStock = 6,
+                            ReleaseDate = new DateTime(2022, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DateAdded = new DateTime(2016, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            GenreId = (byte)3,
+                            Name = "Toy Story",
+                            NumInStock = 2,
+                            ReleaseDate = new DateTime(2017, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DateAdded = new DateTime(2023, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            GenreId = (byte)4,
+                            Name = "Titanic",
+                            NumInStock = 9,
+                            ReleaseDate = new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("Vidly.Models.Customer", b =>
@@ -153,6 +252,17 @@ namespace Vidly.Migrations
                         .IsRequired();
 
                     b.Navigation("MembershipType");
+                });
+
+            modelBuilder.Entity("Vidly.Models.Movie", b =>
+                {
+                    b.HasOne("Vidly.Models.Genre", "Genre")
+                        .WithMany()
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Genre");
                 });
 #pragma warning restore 612, 618
         }

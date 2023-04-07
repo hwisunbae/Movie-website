@@ -1,53 +1,67 @@
 ﻿<Properties StartupConfiguration="{D0BBDD5F-9911-4A1A-AE69-DA6B14F022C4}|https">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Vidly PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Vidly PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Movies/Details.cshtml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Data/ApplicationDBContext.cs">
     <Files>
-      <File FileName="Models/MembershipType.cs" Line="12" Column="2" />
-      <File FileName="Controllers/CustomersController.cs" Line="41" Column="10" />
+      <File FileName="Models/MembershipType.cs" Line="17" Column="1" />
+      <File FileName="Controllers/CustomersController.cs" Line="35" Column="79" />
       <File FileName="appsettings.json" />
-      <File FileName="Program.cs" Line="45" Column="1" />
+      <File FileName="Program.cs" />
       <File FileName="Properties/launchSettings.json" />
-      <File FileName="Models/Customer.cs" Line="22" Column="29" />
+      <File FileName="Models/Customer.cs" Line="22" Column="54" />
       <File FileName="Models/ErrorViewModel.cs" />
-      <File FileName="Models/Movie.cs" Line="11" Column="18" />
-      <File FileName="ViewModels/RandomMovieViewModel.cs" Line="1" Column="1" />
+      <File FileName="Models/Movie.cs" Line="19" Column="1" />
       <File FileName="Views/Customers/Details.cshtml" Line="9" Column="1" />
-      <File FileName="Views/Customers/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Customers/Index.cshtml" Line="28" Column="11" />
       <File FileName="../../../../../../../usr/local/share/dotnet/sdk/7.0.102/Microsoft.Common.CurrentVersion.targets" />
-      <File FileName="Views/Movies/Index.cshtml" Line="22" Column="16" />
-      <File FileName="Views/Home/Privacy.cshtml" />
-      <File FileName="Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Movies/Index.cshtml" Line="29" Column="51" />
+      <File FileName="Views/Home/Privacy.cshtml" Line="8" Column="1" />
+      <File FileName="Views/Home/Index.cshtml" />
       <File FileName="Views/Movies/Index.cshtml.cs" />
-      <File FileName="Views/Movies/Customers.cshtml" Line="1" Column="1" />
       <File FileName="Controllers/HomeController.cs" Line="15" Column="1" />
-      <File FileName="Controllers/MoviesController.cs" Line="16" Column="1" />
+      <File FileName="Controllers/MoviesController.cs" Line="42" Column="31" />
       <File FileName="Views/_ViewStart.cshtml" />
       <File FileName="Views/Shared/_NavBar.cshtml" />
-      <File FileName="Views/Movies/Details.cshtml" Line="9" Column="5" />
+      <File FileName="Views/Movies/Details.cshtml" Line="12" Column="12" />
       <File FileName="Views/Shared/_Layout.cshtml" />
-      <File FileName="Views/Customers/New.cshtml" />
-      <File FileName="ViewModels/NewCustomerViewModel.cs" Line="1" Column="1" />
-      <File FileName="Migrations/ApplicationDBContextModelSnapshot.cs" />
+      <File FileName="Views/Customers/New.cshtml" Line="21" Column="1" />
+      <File FileName="ViewModels/NewCustomerViewModel.cs" Line="2" Column="1" />
+      <File FileName="Migrations/ApplicationDBContextModelSnapshot.cs" Line="1" Column="1" />
       <File FileName="Migrations/20230326201549_InitialModels.cs" />
-      <File FileName="Migrations/20230326202800_PopulateMembershipTypes.cs" />
-      <File FileName="Migrations/20230326203303_PopulateMembershipTypes_Redo.cs" />
+      <File FileName="Migrations/20230326202800_PopulateMembershipTypes.cs" Line="1" Column="1" />
+      <File FileName="Migrations/20230326203303_PopulateMembershipTypes_Redo.cs" Line="1" Column="1" />
       <File FileName="Migrations/20230326202800_PopulateMembershipTypes.Designer.cs" />
       <File FileName="Migrations/20230326224500_CustomerTemp.cs" Line="23" Column="36" />
-      <File FileName="Data/ApplicationDBContext.cs" Line="119" Column="18" />
-      <File FileName="Migrations/20230403145209_CustomerTemp2.cs" Line="25" Column="19" />
+      <File FileName="Data/ApplicationDBContext.cs" Line="159" Column="71" />
+      <File FileName="Migrations/20230403145209_CustomerTemp2.cs" />
+      <File FileName="Migrations/20230404103025_MembershipTypesInvalid.cs" Line="1" Column="1" />
+      <File FileName="Views/Movies/New.cshtml" Line="19" Column="11" />
+      <File FileName="Views/Movies/MovieForm.cshtml" Line="9" Column="1" />
+      <File FileName="Models/Genre.cs" Line="18" Column="1" />
+      <File FileName="ViewModels/MovieFormViewModel.cs" Line="12" Column="1" />
+      <File FileName="Migrations/20230403155401_Movies.cs" Line="1" Column="1" />
+      <File FileName="Migrations/20230403152107_MembershipTypeName.cs" Line="1" Column="1" />
+      <File FileName="Migrations/20230403152610_BirthDay.cs" Line="1" Column="1" />
+      <File FileName="Migrations/20230404164858_GenresTemp.cs" Line="1" Column="1" />
+      <File FileName="Migrations/20230404164943_GenresValue.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Vidly" expanded="True">
             <Node name="Vidly" expanded="True">
-              <Node name="Dependencies" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True" />
+              <Node name="Data" expanded="True">
+                <Node name="ApplicationDBContext.cs" selected="True" />
+              </Node>
               <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
@@ -62,8 +76,9 @@
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
