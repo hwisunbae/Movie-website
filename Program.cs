@@ -9,6 +9,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDBContext>(opts => opts.UseSqlServer("name=ConnectionString:Vidly"));
+//builder.Services.AddDbContext<ApplicationDBContext>(opts => opts.UseInMemoryDatabase("name=ConnectionString:Vidly"));
+
+// hot reload using RuntimeCompilation Nuget
+var mvcBuilder = builder.Services.AddRazorPages();
+if (builder.Environment.IsDevelopment())
+{
+    mvcBuilder.AddRazorRuntimeCompilation();
+}
+
+
 
 var app = builder.Build();
 
